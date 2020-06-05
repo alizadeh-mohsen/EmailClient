@@ -1,17 +1,24 @@
 <h3>Create accont</h3>
-<form [formGroup]="creditCardForm" >
+<form [formGroup]="authForm">
     <div class="form-group">
-        <label for="usernameControl">username</label>
-        <input type="text" class="form-control" id="usernameControl" placeholder="Enter username">
+        <label for="usernameControl">Username</label>
+        <input type="text" class="form-control" id="usernameControl" placeholder="Enter username"
+            formControlName="username">
     </div>
-    <div class="form-group">
+    {{authForm.get('username').errors | json}}
+    <div class=" form-group">
         <label for="passwordControl">Password</label>
-        <input type="password" class="form-control" id="passwordControl" placeholder="Password">
+
+        <input type="password" class="form-control" id="passwordControl" placeholder="Password"
+            formControlName="password">
     </div>
+    {{authForm.get('password').errors|json}}
     <div class="form-group">
         <label for="confirmPasswordControl">Confirm password</label>
-        <input type="password" class="form-control" id="confirmPasswordControl" placeholder="confirm password">
+        <input type="password" class="form-control" id="confirmPasswordControl" placeholder="confirm password"
+            formControlName="passwordConfirmation">
     </div>
-    
+    {{authForm.get('passwordConfirmation').errors | json}}
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
